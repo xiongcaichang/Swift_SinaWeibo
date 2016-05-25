@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CCSearchBar" customModule="Swiift_SinaWeibo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6r-4b-6I7">
+                    <rect key="frame" x="270" y="0.0" width="50" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="duJ-a4-Wco"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="取消">
+                        <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="cancelBUttonClick" destination="iN0-l3-epB" eventType="touchUpInside" id="cZh-yT-P2A"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c5X-8Q-vJO">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="searchEditBegin:" destination="iN0-l3-epB" eventType="editingDidBegin" id="g0P-Lg-OGV"/>
+                        <action selector="searchEditEnd:" destination="iN0-l3-epB" eventType="editingDidEnd" id="Ln9-5W-ezM"/>
+                    </connections>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="c5X-8Q-vJO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="12e-Rj-FF5"/>
+                <constraint firstAttribute="trailing" secondItem="c5X-8Q-vJO" secondAttribute="trailing" id="DeZ-uP-kON"/>
+                <constraint firstAttribute="trailing" secondItem="g6r-4b-6I7" secondAttribute="trailing" id="IDx-5I-0BE"/>
+                <constraint firstAttribute="bottom" secondItem="c5X-8Q-vJO" secondAttribute="bottom" id="MUy-Oj-gKP"/>
+                <constraint firstAttribute="bottom" secondItem="g6r-4b-6I7" secondAttribute="bottom" id="i7W-E7-GbR"/>
+                <constraint firstItem="g6r-4b-6I7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="qqL-5b-vw5"/>
+                <constraint firstItem="c5X-8Q-vJO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="sjQ-kt-fgr"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="20"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="cancelButton" destination="g6r-4b-6I7" id="8Ly-3F-GTI"/>
+                <outlet property="searchTF" destination="c5X-8Q-vJO" id="xL2-1E-drO"/>
+                <outlet property="searchTFtrail" destination="DeZ-uP-kON" id="Duy-7U-j6e"/>
+            </connections>
+            <point key="canvasLocation" x="458" y="265"/>
+        </view>
+    </objects>
+</document>
