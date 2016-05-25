@@ -65,7 +65,7 @@ class StatusOriginalView: UIView {
         nameLabel.snp_makeConstraints { (make) in
             
             make.left.equalTo(headIcon.snp_right).offset(statusCellMargin)
-            make.top.equalTo(statusCellMargin)
+            make.top.equalTo(self).offset(statusCellMargin)
         }
         
         mbrankIcon.snp_makeConstraints { (make) in
@@ -84,8 +84,9 @@ class StatusOriginalView: UIView {
         
         sourceLabel.snp_makeConstraints { (make) in
             
+            make.top.equalTo(timelabel.snp_top)
             make.left.equalTo(timelabel.snp_right).offset(16)
-            make.bottom.equalTo(timelabel.snp_bottom)
+//            make.bottom.equalTo(timelabel.snp_bottom)
         }
         
         
@@ -93,25 +94,38 @@ class StatusOriginalView: UIView {
             
             make.left.equalTo(self).offset(statusCellMargin)
             
-            make.top.equalTo(headIcon.snp_bottom).offset(statusCellMargin)
+            make.top.equalTo(sourceLabel.snp_bottom).offset(statusCellMargin)
+            
+            /**
+             *  test
+             */
+//             make.bottom.equalTo(self)
         
             
         }
         
         
         statusPhotoView.snp_makeConstraints { (make) in
-            
+        
             
             make.top.equalTo(contentLabel.snp_bottom)
-//            make.left.equalTo(self).offset(statusCellMargin)
-//            
-//            make.right.equalTo(self).offset(-statusCellMargin)
             
-            make.bottom.equalTo(self.snp_bottom).offset(-statusCellMargin)
+            //          //已经有了 size
+            
+            make.left.equalTo(self).offset(statusCellMargin)
+            
+//            make.right.equalTo(self).offset(-statusCellMargin)
+
+            
+//            make.bottom.equalTo(self.snp_bottom).offset(-statusCellMargin)
             
         }
         
         
+        self.snp_makeConstraints { (make) in
+            
+            make.bottom.equalTo(statusPhotoView.snp_bottom).offset(statusCellMargin)
+        }
         
         
     }

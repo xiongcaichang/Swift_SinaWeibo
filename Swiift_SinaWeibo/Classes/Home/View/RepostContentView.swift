@@ -14,7 +14,7 @@ class RepostContentView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor.whiteColor()
+        self.backgroundColor = UIColor.grayColor()
         setUI()
         
         
@@ -38,9 +38,10 @@ class RepostContentView: UIView {
             
             make.left.equalTo(self).offset(statusCellMargin)
             
-            make.right.equalTo(self).offset(-statusCellMargin)
+
             make.top.equalTo(self.snp_top).offset(statusCellMargin)
-            make.bottom.equalTo(statusPhotoView.snp_top)
+            
+
             
         }
         
@@ -48,20 +49,27 @@ class RepostContentView: UIView {
         statusPhotoView.snp_makeConstraints { (make) in
             
         
-//            make.top.equalTo(contentLabel.snp_bottom)
-//            make.left.equalTo(self).offset(statusCellMargin)
-//    
-//            make.right.equalTo(self).offset(-statusCellMargin)
+            make.top.equalTo(contentLabel.snp_bottom).offset(statusCellMargin)
+            
+            //已经有了 size
+            make.left.equalTo(self).offset(statusCellMargin)
+    
             
             make.bottom.equalTo(self.snp_bottom).offset(-statusCellMargin)
             
         }
         
+//        self.snp_makeConstraints { (make) in
+//            
+//            make.bottom.equalTo(statusPhotoView.snp_bottom).offset(statusCellMargin)
+//        }
         
+        
+    
     }
     
     
-     lazy var contentLabel = UILabel(text: "snxuasbciabbciabasbbcaybcauybcuabcuabcaubacubaucbyasbcuabxyaubcbcuaycbaysbcuyabuascbyuabcayubcuyabcub", textColor: UIColor.blackColor(), fontSize: 14)
+     lazy var contentLabel = UILabel(text: "snxuasbciabbciabasbbcaybcauybcuabcuabcaubacubaucbyasbcuabxyaubcbcuaycbaysbcuyabuascbyuabcayubcuyabcub", textColor: UIColor.blackColor(), fontSize: 14,margin: statusCellMargin)
     
 
     

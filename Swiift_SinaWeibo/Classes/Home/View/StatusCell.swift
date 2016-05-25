@@ -42,8 +42,23 @@ class StatusCell: UITableViewCell {
             //转发微博图片不为空 那么则设置转发微博图片
             
             repostContentView.statusPhotoView.pic_urls=statusViewModel!.status?.retweeted_status?.pic_urls
-                
+            
 
+            
+            
+            if statusViewModel?.status?.retweeted_status == nil {
+                
+                statusBottom.snp_updateConstraints(closure: { (make) in
+                    
+                    make.top.equalTo(statusOriginalView.snp_bottom).offset(statusCellMargin)
+                })
+            }else{
+                statusBottom.snp_updateConstraints(closure: { (make) in
+                    
+                    make.top.equalTo(repostContentView.snp_bottom).offset(statusCellMargin)
+                })
+                
+            }
             
             
             
@@ -59,8 +74,6 @@ class StatusCell: UITableViewCell {
             
             
             
-            
-            layoutIfNeeded()
             
         }
     }
@@ -116,7 +129,7 @@ class StatusCell: UITableViewCell {
         repostContentView.snp_makeConstraints { (make) in
             
             make.left.equalTo(contentView)
-            make.right.equalTo(contentView)
+//            make.right.equalTo(contentView)
             make.top.equalTo(statusOriginalView.snp_bottom)
     
         }
@@ -136,6 +149,7 @@ class StatusCell: UITableViewCell {
             make.bottom.equalTo(contentView).offset(-15)
 
         }
+        
     }
     
     

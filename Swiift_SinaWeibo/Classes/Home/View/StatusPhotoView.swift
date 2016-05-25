@@ -18,7 +18,7 @@ class StatusPhotoView: UICollectionView,UICollectionViewDelegate,UICollectionVie
             countLabel.text="\(pic_urls?.count)"
             
             
-                        reloadData()
+            reloadData()
             
             self.snp_updateConstraints { (make) in
                 
@@ -43,17 +43,14 @@ class StatusPhotoView: UICollectionView,UICollectionViewDelegate,UICollectionVie
         
         registerClass(StatusPhotoCell.self, forCellWithReuseIdentifier: "statusPhotocell")
         
-        
-        
         setUI()
         
     }
     
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
     
     
     func getSize()->CGSize {
@@ -63,47 +60,55 @@ class StatusPhotoView: UICollectionView,UICollectionViewDelegate,UICollectionVie
         
         
         let layout = self.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.minimumLineSpacing=1
-        layout.minimumInteritemSpacing=1;
+        layout.minimumLineSpacing=0
+        layout.minimumInteritemSpacing=0;
         
-        var contentW = SCREEN_WIDTH-2*statusCellMargin
+        let contentW:CGFloat = SCREEN_WIDTH-2*statusCellMargin
         
-        
-        
-        
-        var contentH = contentW
+        let contentH:CGFloat = contentW
         
 
-
+        var collectionViewHeight:CGFloat?
+        var collectionViewWidth:CGFloat?
+        
+        var row:Int = 0
+    
         
         
-        
-        var height:CGFloat?
-         layout.itemSize = CGSizeMake(contentW/3-1, contentH/3-1)
-        
-        if count == 1 {
-            layout.itemSize =  CGSizeMake(contentW/2, contentH/2)
+        if count == 0 {
+            collectionViewHeight = 0
+            collectionViewWidth =  0
+        }else if count==1 {
             
-            contentW = contentW/2
+            collectionViewWidth = contentW/3.0*2
+            collectionViewHeight = contentH/3.0*2
             
-            height = contentH/2
-            contentW = contentW/2
-           
+        }else if count>0&&count<=4 {
+            row = (count-1)/2 + 1
+            collectionViewWidth = contentW/3.0*2
+            collectionViewHeight = contentH/3.0*CGFloat(row)
             
-        }else if  count>1&&count <= 3{
-            height = contentH/3
-        }else if  count>3&&count <= 6{
-            height = contentH/3*2
-        }else if count == 0 {
-            height = 0
-        }else {
-            
-            height = contentH
-            
+        }else if count > 4{
+            row = (count-1)/3 + 1
+            collectionViewWidth = contentW
+            collectionViewHeight = contentH/3.0*CGFloat(row)
         }
 
         
-         return CGSize(width: SCREEN_WIDTH , height: height!)
+        
+        if count == 1 {
+            layout.itemSize = CGSizeMake(collectionViewWidth!, collectionViewHeight!)
+        }else{
+            layout.itemSize = CGSizeMake(contentW/3.0-2, contentH/3.0-2)
+        }
+    
+        
+        
+        
+
+
+        
+         return CGSize(width: collectionViewWidth! , height: collectionViewHeight!)
         
     }
     
@@ -134,7 +139,7 @@ class StatusPhotoView: UICollectionView,UICollectionViewDelegate,UICollectionVie
      var collectionView:UICollectionView?
     
     
-     lazy var countLabel = UILabel(text: "", textColor: UIColor.whiteColor(), fontSize: 36)
+     lazy var countLabel = UILabel(text: "", textColor: UIColor.orangeColor(), fontSize: 36)
     
 }
 

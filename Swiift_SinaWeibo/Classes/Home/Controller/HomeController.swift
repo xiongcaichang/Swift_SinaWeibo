@@ -31,6 +31,10 @@ class HomeController: BaseTableViewController {
             self.tableView.rowHeight = UITableViewAutomaticDimension;
             self.tableView.estimatedRowHeight = 350;
             
+            
+            refreshControl = UIRefreshControl();
+            
+            refreshControl!.addTarget(self, action: #selector(loadHomeData), forControlEvents: .ValueChanged)
             loadHomeData()
 
         }
@@ -45,7 +49,7 @@ class HomeController: BaseTableViewController {
     /**
      加载网络数据
      */
-    func loadHomeData() {
+    @objc   func loadHomeData() {
         
         
         statusListViewModel?.loadHomeData({ (isSucess) in
@@ -54,6 +58,8 @@ class HomeController: BaseTableViewController {
             
             if isSucess {
                 self.tableView.reloadData();
+                
+                self.refreshControl?.endRefreshing()
             }else{
                 
                 

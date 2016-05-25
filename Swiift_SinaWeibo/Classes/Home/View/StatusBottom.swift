@@ -55,7 +55,7 @@ class StatusBottom: UIView {
         attitudeButton.snp_makeConstraints { (make) in
                       make.top.equalTo(self.snp_top)
             
-//            make.bottom.equalTo(self.snp_bottom)
+            make.bottom.equalTo(self.snp_bottom)
             make.left.equalTo(commmentButton.snp_right)
             make.right.equalTo(self).offset(-statusCellMargin)
             
