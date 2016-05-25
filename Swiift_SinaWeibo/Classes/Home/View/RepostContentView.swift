@@ -54,15 +54,16 @@ class RepostContentView: UIView {
             //已经有了 size
             make.left.equalTo(self).offset(statusCellMargin)
     
+
             
-            make.bottom.equalTo(self.snp_bottom).offset(-statusCellMargin)
+//            make.bottom.equalTo(self.snp_bottom).offset(-statusCellMargin)
             
         }
-        
-//        self.snp_makeConstraints { (make) in
-//            
-//            make.bottom.equalTo(statusPhotoView.snp_bottom).offset(statusCellMargin)
-//        }
+//        
+        self.snp_makeConstraints { (make) in
+            
+            make.bottom.equalTo(statusPhotoView.snp_bottom).offset(statusCellMargin)
+        }
         
         
     

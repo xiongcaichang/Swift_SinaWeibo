@@ -29,12 +29,10 @@ class StatusBottom: UIView {
         addSubview(commmentButton)
         addSubview(attitudeButton)
         
-
-        
         
         repostButton.snp_makeConstraints { (make) in
            make.top.equalTo(self.snp_top)
-//            make.bottom.equalTo(self.snp_bottom)
+            make.bottom.equalTo(self.snp_bottom)
             make.width.height.equalTo(commmentButton)
             make.left.equalTo(self).offset(statusCellMargin)
             
@@ -43,8 +41,8 @@ class StatusBottom: UIView {
         
         
         commmentButton.snp_makeConstraints { (make) in
-                       make.top.equalTo(self.snp_top)
-//            make.bottom.equalTo(self.snp_bottom)
+
+            make.top.equalTo(self.snp_top)
             make.left.equalTo(repostButton.snp_right)
             make.width.height.equalTo(attitudeButton)
 
@@ -53,22 +51,13 @@ class StatusBottom: UIView {
         
         
         attitudeButton.snp_makeConstraints { (make) in
-                      make.top.equalTo(self.snp_top)
             
+            make.top.equalTo(self.snp_top)
             make.bottom.equalTo(self.snp_bottom)
             make.left.equalTo(commmentButton.snp_right)
             make.right.equalTo(self).offset(-statusCellMargin)
             
         }
-        
-        
-
-        
-
-
-        
-        
-        
 
     }
     
@@ -85,9 +74,9 @@ class StatusBottom: UIView {
         btn.titleLabel?.font=UIFont.systemFontOfSize(14)
                 btn.setTitleColor(UIColor.blackColor(), forState: .Normal)
         
-        
         return btn
     }()
+    
     
     lazy var  repostButton:UIButton={
         let btn=UIButton(type: UIButtonType.Custom)
@@ -100,10 +89,9 @@ class StatusBottom: UIView {
         return btn
     }()
     
+    
     lazy var  attitudeButton:UIButton={
         let btn=UIButton(type: UIButtonType.Custom)
-        
-       
         btn.setImage( UIImage(named: "timeline_icon_like"), forState: .Normal)
                btn.setTitle("点赞", forState: .Normal)
                 btn.titleLabel?.font=UIFont.systemFontOfSize(14)

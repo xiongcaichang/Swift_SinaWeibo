@@ -111,13 +111,9 @@ class StatusOriginalView: UIView {
             make.top.equalTo(contentLabel.snp_bottom)
             
             //          //已经有了 size
-            
             make.left.equalTo(self).offset(statusCellMargin)
-            
-//            make.right.equalTo(self).offset(-statusCellMargin)
 
-            
-//            make.bottom.equalTo(self.snp_bottom).offset(-statusCellMargin)
+         
             
         }
         

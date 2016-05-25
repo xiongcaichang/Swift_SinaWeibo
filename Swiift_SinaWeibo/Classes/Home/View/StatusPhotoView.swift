@@ -60,8 +60,8 @@ class StatusPhotoView: UICollectionView,UICollectionViewDelegate,UICollectionVie
         
         
         let layout = self.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.minimumLineSpacing=0
-        layout.minimumInteritemSpacing=0;
+        layout.minimumLineSpacing=1
+        layout.minimumInteritemSpacing=1;
         
         let contentW:CGFloat = SCREEN_WIDTH-2*statusCellMargin
         
@@ -97,9 +97,9 @@ class StatusPhotoView: UICollectionView,UICollectionViewDelegate,UICollectionVie
         
         
         if count == 1 {
-            layout.itemSize = CGSizeMake(collectionViewWidth!, collectionViewHeight!)
+            layout.itemSize = CGSizeMake(collectionViewWidth!-1, collectionViewHeight!-1)
         }else{
-            layout.itemSize = CGSizeMake(contentW/3.0-2, contentH/3.0-2)
+            layout.itemSize = CGSizeMake(contentW/3.0-1, contentH/3.0-1)
         }
     
         

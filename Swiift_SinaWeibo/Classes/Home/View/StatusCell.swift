@@ -10,7 +10,9 @@ import UIKit
 
 class StatusCell: UITableViewCell {
 
+    var bottomTopCons: Constraint?
     
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -34,31 +36,40 @@ class StatusCell: UITableViewCell {
             
             statusOriginalView.statusPhotoView.pic_urls = statusViewModel?.status?.pic_urls
             
-            print(statusViewModel?.status?.pic_urls)
-            
-            
-            repostContentView.contentLabel.text=statusViewModel!.status?.retweeted_status?.text
-            
-            //转发微博图片不为空 那么则设置转发微博图片
-            
-            repostContentView.statusPhotoView.pic_urls=statusViewModel!.status?.retweeted_status?.pic_urls
-            
 
+            //卸载约束
+            bottomTopCons?.uninstall()
             
             
             if statusViewModel?.status?.retweeted_status == nil {
                 
+                repostContentView.hidden=true
+                
                 statusBottom.snp_updateConstraints(closure: { (make) in
                     
-                    make.top.equalTo(statusOriginalView.snp_bottom).offset(statusCellMargin)
+                    self.bottomTopCons = make.top.equalTo(statusOriginalView.snp_bottom).offset(statusCellMargin).constraint
+                    
                 })
             }else{
+                 repostContentView.hidden=false
+                repostContentView.contentLabel.text="[转发]:   \((statusViewModel!.status?.retweeted_status?.text)!)"
+                
+                //转发微博图片不为空 那么则设置转发微博图片
+                
+                repostContentView.statusPhotoView.pic_urls=statusViewModel!.status?.retweeted_status?.pic_urls
+            
+                
+                
                 statusBottom.snp_updateConstraints(closure: { (make) in
                     
-                    make.top.equalTo(repostContentView.snp_bottom).offset(statusCellMargin)
+                   self.bottomTopCons = make.top.equalTo(repostContentView.snp_bottom).offset(statusCellMargin).constraint
                 })
                 
             }
+            
+            
+            
+            
             
             
             
@@ -88,14 +99,7 @@ class StatusCell: UITableViewCell {
         
         
         
-        addOriginalView()
-        
-        addRepostContentView()
-        
-        addBottonView()
-        
-        
-        
+        addView()
         
         
         
@@ -106,9 +110,12 @@ class StatusCell: UITableViewCell {
         
     }
     
-    
-    func addOriginalView() {
+
+
+    func addView() {
+        contentView.addSubview(statusBottom)
         
+        contentView.addSubview(repostContentView)
         contentView.addSubview(statusOriginalView)
         
         
@@ -118,39 +125,36 @@ class StatusCell: UITableViewCell {
             make.left.top.right.equalTo(contentView)
             
             
-            
         }
-        
-    }
-    
-    func addRepostContentView() {
-        contentView.addSubview(repostContentView)
         
         repostContentView.snp_makeConstraints { (make) in
             
             make.left.equalTo(contentView)
-//            make.right.equalTo(contentView)
+            make.right.equalTo(contentView)
             make.top.equalTo(statusOriginalView.snp_bottom)
-    
+            
         }
-        
-    }
-    
-
-
-    func addBottonView() {
-        contentView.addSubview(statusBottom)
         
         statusBottom.snp_makeConstraints { (make) in
             
             make.height.equalTo(30);
-            make.top.equalTo(repostContentView.snp_bottom).offset(statusCellMargin)
+             self.bottomTopCons = make.top.equalTo(repostContentView.snp_bottom).offset(statusCellMargin).constraint
             make.left.right.equalTo(contentView)
-            make.bottom.equalTo(contentView).offset(-15)
 
         }
         
+        
+        
+        
+        contentView.snp_makeConstraints { (make) -> Void in
+            //其他的几个约束也需要同时添加 不然contentView只知道底部在哪个地方
+            make.left.right.top.equalTo(self)
+            make.bottom.equalTo(statusBottom.snp_bottom).offset(statusCellMargin)
+        }
+        
     }
+    
+    
     
     
     

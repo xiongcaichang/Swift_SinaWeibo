@@ -32,10 +32,12 @@ class HomeController: BaseTableViewController {
             self.tableView.estimatedRowHeight = 350;
             
             
+            loadHomeData()
+            
             refreshControl = UIRefreshControl();
             
             refreshControl!.addTarget(self, action: #selector(loadHomeData), forControlEvents: .ValueChanged)
-            loadHomeData()
+           
 
         }
         
@@ -50,7 +52,7 @@ class HomeController: BaseTableViewController {
      加载网络数据
      */
     @objc   func loadHomeData() {
-        
+            statusListViewModel?.statusViewModel.removeAll()
         
         statusListViewModel?.loadHomeData({ (isSucess) in
             
@@ -104,18 +106,6 @@ extension HomeController{
     }
     
     
-    
-    
-//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        
-//        print( (tableView.cellForRowAtIndexPath(indexPath)?.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height) ?? 300)
-//        
-//        
-//        
-//        
-//        
-//        return 600
-//    }
     
     
 }
