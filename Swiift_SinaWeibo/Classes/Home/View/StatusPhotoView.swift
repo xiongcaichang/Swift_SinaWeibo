@@ -68,6 +68,9 @@ class StatusPhotoView: UICollectionView,UICollectionViewDelegate,UICollectionVie
         
         var contentW = SCREEN_WIDTH-2*statusCellMargin
         
+        
+        
+        
         var contentH = contentW
         
 
