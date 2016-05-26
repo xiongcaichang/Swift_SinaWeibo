@@ -9,11 +9,10 @@
 import UIKit
 
 class StatusBottom: UIView {
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor=UIColor.whiteColor()
-        
         setUI()
         
     }
@@ -25,13 +24,15 @@ class StatusBottom: UIView {
     
     
     func setUI() {
+        addSubview(breakLine);
+        breakLine.backgroundColor = UIColor(colorLiteralRed: 242/255.0, green: 242/255.0, blue: 242/255.0, alpha: 1)
         addSubview(repostButton)
         addSubview(commmentButton)
         addSubview(attitudeButton)
         
         
         repostButton.snp_makeConstraints { (make) in
-           make.top.equalTo(self.snp_top)
+            make.top.equalTo(self.snp_top)
             make.bottom.equalTo(self.snp_bottom)
             make.width.height.equalTo(commmentButton)
             make.left.equalTo(self).offset(statusCellMargin)
@@ -41,11 +42,11 @@ class StatusBottom: UIView {
         
         
         commmentButton.snp_makeConstraints { (make) in
-
+            
             make.top.equalTo(self.snp_top)
             make.left.equalTo(repostButton.snp_right)
             make.width.height.equalTo(attitudeButton)
-
+            
         }
         
         
@@ -58,12 +59,15 @@ class StatusBottom: UIView {
             make.right.equalTo(self).offset(-statusCellMargin)
             
         }
-
+        
     }
     
     
     
-
+    lazy  var breakLine:UIView = UIView.init(frame: CGRectMake(statusCellMargin, 0, SCREEN_WIDTH-2*statusCellMargin, CGFloat(1/UIScreen.mainScreen().scale)));
+    
+    
+    
     
     lazy var commmentButton:UIButton={
         let btn=UIButton(type: UIButtonType.Custom)
@@ -72,7 +76,7 @@ class StatusBottom: UIView {
         btn.setTitle("评论", forState: .Normal)
         
         btn.titleLabel?.font=UIFont.systemFontOfSize(14)
-                btn.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        btn.setTitleColor(UIColor.blackColor(), forState: .Normal)
         
         return btn
     }()
@@ -82,8 +86,8 @@ class StatusBottom: UIView {
         let btn=UIButton(type: UIButtonType.Custom)
         
         btn.setImage(UIImage(named: "timeline_icon_retweet"), forState: .Normal)
-               btn.setTitle("转发", forState: .Normal)
-                btn.titleLabel?.font=UIFont.systemFontOfSize(14)
+        btn.setTitle("转发", forState: .Normal)
+        btn.titleLabel?.font=UIFont.systemFontOfSize(14)
         
         btn.setTitleColor(UIColor.blackColor(), forState: .Normal)
         return btn
@@ -93,10 +97,10 @@ class StatusBottom: UIView {
     lazy var  attitudeButton:UIButton={
         let btn=UIButton(type: UIButtonType.Custom)
         btn.setImage( UIImage(named: "timeline_icon_like"), forState: .Normal)
-               btn.setTitle("点赞", forState: .Normal)
-                btn.titleLabel?.font=UIFont.systemFontOfSize(14)
-                btn.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        btn.setTitle("点赞", forState: .Normal)
+        btn.titleLabel?.font=UIFont.systemFontOfSize(14)
+        btn.setTitleColor(UIColor.blackColor(), forState: .Normal)
         return btn
     }()
-
+    
 }

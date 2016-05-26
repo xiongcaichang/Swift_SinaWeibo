@@ -12,9 +12,8 @@ class RepostContentView: UIView {
 
     
     override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        self.backgroundColor = UIColor.grayColor()
+        super.init(frame: frame)   
+        self.backgroundColor = UIColor(colorLiteralRed: 242/255.0, green: 242/255.0, blue: 242/255.0, alpha: 1)
         setUI()
         
         
@@ -28,17 +27,13 @@ class RepostContentView: UIView {
     
     func setUI() {
         addSubview(contentLabel)
-        
         addSubview(statusPhotoView)
-        
         contentLabel.numberOfLines=0
         
         
         contentLabel.snp_makeConstraints { (make) in
             
             make.left.equalTo(self).offset(statusCellMargin)
-            
-
             make.top.equalTo(self.snp_top).offset(statusCellMargin)
             
 
@@ -48,18 +43,12 @@ class RepostContentView: UIView {
         
         statusPhotoView.snp_makeConstraints { (make) in
             
-        
             make.top.equalTo(contentLabel.snp_bottom).offset(statusCellMargin)
-            
             //已经有了 size
             make.left.equalTo(self).offset(statusCellMargin)
-    
-
-            
-//            make.bottom.equalTo(self.snp_bottom).offset(-statusCellMargin)
             
         }
-//        
+        
         self.snp_makeConstraints { (make) in
             
             make.bottom.equalTo(statusPhotoView.snp_bottom).offset(statusCellMargin)
@@ -70,13 +59,10 @@ class RepostContentView: UIView {
     }
     
     
-     lazy var contentLabel = UILabel(text: "snxuasbciabbciabasbbcaybcauybcuabcuabcaubacubaucbyasbcuabxyaubcbcuaycbaysbcuyabuascbyuabcayubcuyabcub", textColor: UIColor.blackColor(), fontSize: 14,margin: statusCellMargin)
+     lazy var contentLabel = UILabel(text: "snxuasbciabuyabuascbyuabcayubcuyabcub", textColor: UIColor.blackColor(), fontSize: 14,margin: statusCellMargin)
     
 
-    
-    
-
-    lazy var statusPhotoView:StatusPhotoView = StatusPhotoView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
+     lazy var statusPhotoView:StatusPhotoView = StatusPhotoView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
     
 
 }

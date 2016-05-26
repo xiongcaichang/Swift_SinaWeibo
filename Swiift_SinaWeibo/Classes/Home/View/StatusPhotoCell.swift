@@ -13,16 +13,16 @@ class StatusPhotoCell: UICollectionViewCell {
     
     
     override init(frame: CGRect) {
-            super.init(frame: frame)
+        super.init(frame: frame)
         
         contentView.addSubview(pic)
-        pic.contentMode =
-            .ScaleAspectFill
+        pic.contentMode = .ScaleAspectFill
         pic.clipsToBounds = true
         
         pic.snp_makeConstraints { (make) in
             
             make.left.right.bottom.top.equalTo(contentView)
+            
         }
         
     }

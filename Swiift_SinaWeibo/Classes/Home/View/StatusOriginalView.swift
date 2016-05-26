@@ -10,17 +10,12 @@ import UIKit
 
 class StatusOriginalView: UIView {
     
-    
 
-    
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.backgroundColor = UIColor.whiteColor()
         setUI()
-        
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -37,27 +32,25 @@ class StatusOriginalView: UIView {
         addSubview(timelabel)
         addSubview(sourceLabel)
         addSubview(contentLabel)
-        
         addSubview(statusPhotoView)
         
         headIcon.cornerRadius=20
-        
         contentLabel.numberOfLines=0
         
         
         
         
         headIcon.snp_makeConstraints { (make) in
-            
+
             make.size.equalTo(CGSizeMake(40, 40))
-            make.left.top.equalTo(self).offset(statusCellMargin)
+            make.top.equalTo(self).offset(2*statusCellMargin)
+            make.left.equalTo(self).offset(statusCellMargin)
         }
         
         
         verifiedIcon.snp_makeConstraints { (make) in
             
             make.size.equalTo(CGSizeMake(10, 10))
-            
             make.bottom.right.equalTo(headIcon.snp_right)
         }
         
@@ -65,18 +58,18 @@ class StatusOriginalView: UIView {
         nameLabel.snp_makeConstraints { (make) in
             
             make.left.equalTo(headIcon.snp_right).offset(statusCellMargin)
-            make.top.equalTo(self).offset(statusCellMargin)
+            make.top.equalTo(self).offset(2*statusCellMargin)
         }
         
         mbrankIcon.snp_makeConstraints { (make) in
             
-             make.size.equalTo(CGSizeMake(10, 10))
-            
+            make.size.equalTo(CGSizeMake(10, 10))
             make.left.equalTo(nameLabel.snp_right).offset(statusCellMargin)
             make.bottom.equalTo(nameLabel);
             
         }
         timelabel.snp_makeConstraints { (make) in
+            
             make.left.equalTo(headIcon.snp_right).offset(statusCellMargin)
             make.bottom.equalTo(headIcon.snp_bottom)
         }
@@ -86,38 +79,26 @@ class StatusOriginalView: UIView {
             
             make.top.equalTo(timelabel.snp_top)
             make.left.equalTo(timelabel.snp_right).offset(16)
-//            make.bottom.equalTo(timelabel.snp_bottom)
         }
         
         
         contentLabel.snp_makeConstraints { (make) in
             
             make.left.equalTo(self).offset(statusCellMargin)
-            
             make.top.equalTo(sourceLabel.snp_bottom).offset(statusCellMargin)
-            
-            /**
-             *  test
-             */
-//             make.bottom.equalTo(self)
-        
-            
         }
         
         
         statusPhotoView.snp_makeConstraints { (make) in
         
-            
-            make.top.equalTo(contentLabel.snp_bottom)
-            
-            //          //已经有了 size
+            make.top.equalTo(contentLabel.snp_bottom).offset(statusCellMargin)
             make.left.equalTo(self).offset(statusCellMargin)
 
-         
-            
         }
         
         
+//       make
+//        取消了 contentView  的 frame 布局 改用  layout
         self.snp_makeConstraints { (make) in
             
             make.bottom.equalTo(statusPhotoView.snp_bottom).offset(statusCellMargin)
@@ -128,15 +109,11 @@ class StatusOriginalView: UIView {
     
     
     
-
-    
     lazy  var headIcon = UIImageView(image: UIImage(named: "avatar_default_big"))
     
     lazy var verifiedIcon = UIImageView(image: UIImage(named: "avatar_vip"))
     
     lazy var mbrankIcon = UIImageView(image: UIImage(named: "avatar_vip"))
-    
-    
     
     lazy var nameLabel = UILabel(text: "bear_access", textColor: UIColor.blackColor(), fontSize: 14)
     
@@ -148,8 +125,5 @@ class StatusOriginalView: UIView {
     
     
     lazy var statusPhotoView:StatusPhotoView = StatusPhotoView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
-    
-    
-    
     
 }

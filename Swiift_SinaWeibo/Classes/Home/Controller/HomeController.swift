@@ -12,7 +12,7 @@ import SVProgressHUD
 class HomeController: BaseTableViewController {
     
     
-    lazy var statusViewModel:[StatusViewModel] = [StatusViewModel]()
+    
     
     lazy var statusListViewModel:StatusListViewModel? =  StatusListViewModel();
     
@@ -30,6 +30,8 @@ class HomeController: BaseTableViewController {
 
             self.tableView.rowHeight = UITableViewAutomaticDimension;
             self.tableView.estimatedRowHeight = 350;
+            
+            self.tableView.separatorStyle = .None
             
             
             loadHomeData()
@@ -52,7 +54,7 @@ class HomeController: BaseTableViewController {
      加载网络数据
      */
     @objc   func loadHomeData() {
-            statusListViewModel?.statusViewModel.removeAll()
+            statusListViewModel?.statusViewModelArray.removeAll()
         
         statusListViewModel?.loadHomeData({ (isSucess) in
             
@@ -88,7 +90,7 @@ extension HomeController{
 
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return self.statusListViewModel!.statusViewModel.count
+       return self.statusListViewModel!.statusViewModelArray.count
     }
     
     
@@ -96,7 +98,7 @@ extension HomeController{
         let cell:StatusCell = tableView.dequeueReusableCellWithIdentifier("HomeTableCell", forIndexPath: indexPath)  as! StatusCell
         
         
-        let  statusViewModel = self.statusListViewModel!.statusViewModel[indexPath.row]
+        let  statusViewModel = self.statusListViewModel!.statusViewModelArray[indexPath.row]
         
         
         cell.statusViewModel=statusViewModel

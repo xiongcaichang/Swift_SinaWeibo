@@ -9,7 +9,7 @@
 import UIKit
 
 class StatusPhotoView: UICollectionView,UICollectionViewDelegate,UICollectionViewDataSource{
-
+    
     
     
     var pic_urls:[String]?{
@@ -17,15 +17,12 @@ class StatusPhotoView: UICollectionView,UICollectionViewDelegate,UICollectionVie
         didSet{
             countLabel.text="\(pic_urls?.count)"
             
-            
             reloadData()
             
             self.snp_updateConstraints { (make) in
                 
                 make.size.equalTo(getSize())
             }
-            
-
             
             
         }
@@ -58,21 +55,18 @@ class StatusPhotoView: UICollectionView,UICollectionViewDelegate,UICollectionVie
         
         let count = pic_urls?.count ?? 0
         
-        
         let layout = self.collectionViewLayout as! UICollectionViewFlowLayout
         layout.minimumLineSpacing=1
         layout.minimumInteritemSpacing=1;
         
         let contentW:CGFloat = SCREEN_WIDTH-2*statusCellMargin
-        
         let contentH:CGFloat = contentW
         
-
         var collectionViewHeight:CGFloat?
         var collectionViewWidth:CGFloat?
         
         var row:Int = 0
-    
+        
         
         
         if count == 0 {
@@ -93,7 +87,7 @@ class StatusPhotoView: UICollectionView,UICollectionViewDelegate,UICollectionVie
             collectionViewWidth = contentW
             collectionViewHeight = contentH/3.0*CGFloat(row)
         }
-
+        
         
         
         if count == 1 {
@@ -101,45 +95,37 @@ class StatusPhotoView: UICollectionView,UICollectionViewDelegate,UICollectionVie
         }else{
             layout.itemSize = CGSizeMake(contentW/3.0-1, contentH/3.0-1)
         }
-    
         
         
         
-
-
-        
-         return CGSize(width: collectionViewWidth! , height: collectionViewHeight!)
+        return CGSize(width: collectionViewWidth! , height: collectionViewHeight!)
         
     }
     
     
     func setUI() {
         
-
-            
-
-        
         
         
         /**
          *  测试数据
          */
-            addSubview(countLabel)
+        addSubview(countLabel)
         
-            countLabel.snp_makeConstraints(closure: { (make) in
-                
-                make.center.equalTo(self.snp_center)
-            })
-
+        countLabel.snp_makeConstraints(closure: { (make) in
+            
+            make.center.equalTo(self.snp_center)
+        })
+        
         
     }
     
     
     
-     var collectionView:UICollectionView?
+    var collectionView:UICollectionView?
     
     
-     lazy var countLabel = UILabel(text: "", textColor: UIColor.orangeColor(), fontSize: 36)
+    lazy var countLabel = UILabel(text: "", textColor: UIColor.orangeColor(), fontSize: 36)
     
 }
 
@@ -151,11 +137,12 @@ extension StatusPhotoView{
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return (pic_urls?.count) ?? 0
     }
-
+    
     
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {

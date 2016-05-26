@@ -47,7 +47,7 @@ class StatusCell: UITableViewCell {
                 
                 statusBottom.snp_updateConstraints(closure: { (make) in
                     
-                    self.bottomTopCons = make.top.equalTo(statusOriginalView.snp_bottom).offset(statusCellMargin).constraint
+                    self.bottomTopCons = make.top.equalTo(statusOriginalView.snp_bottom).constraint
                     
                 })
             }else{
@@ -62,7 +62,7 @@ class StatusCell: UITableViewCell {
                 
                 statusBottom.snp_updateConstraints(closure: { (make) in
                     
-                   self.bottomTopCons = make.top.equalTo(repostContentView.snp_bottom).offset(statusCellMargin).constraint
+                   self.bottomTopCons = make.top.equalTo(repostContentView.snp_bottom).constraint
                 })
                 
             }
@@ -93,7 +93,7 @@ class StatusCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        let red:CGFloat =  227 / 255.0
+        let red:CGFloat =  242 / 255.0
         
         backgroundColor=UIColor(red: red, green: red, blue: red, alpha: 1)
         
@@ -114,7 +114,6 @@ class StatusCell: UITableViewCell {
 
     func addView() {
         contentView.addSubview(statusBottom)
-        
         contentView.addSubview(repostContentView)
         contentView.addSubview(statusOriginalView)
         
@@ -138,7 +137,7 @@ class StatusCell: UITableViewCell {
         statusBottom.snp_makeConstraints { (make) in
             
             make.height.equalTo(30);
-             self.bottomTopCons = make.top.equalTo(repostContentView.snp_bottom).offset(statusCellMargin).constraint
+             self.bottomTopCons = make.top.equalTo(repostContentView.snp_bottom).constraint
             make.left.right.equalTo(contentView)
 
         }

@@ -11,7 +11,7 @@ import UIKit
 class StatusListViewModel: NSObject {
 
     
-    lazy var statusViewModel:[StatusViewModel] = [StatusViewModel]()
+    lazy var statusViewModelArray:[StatusViewModel] = [StatusViewModel]()
     
     
     
@@ -21,16 +21,14 @@ class StatusListViewModel: NSObject {
             
             if  error != nil {
                 
-
+                handlerBlock(isSucess: false)
                 
             }
-            
             
             guard let dict =  respondObject as! [String:AnyObject]? else{
                 
                 return
             }
-            
             
             guard let array = dict["statuses"] as! [[String:AnyObject]]? else{
                 
@@ -39,15 +37,13 @@ class StatusListViewModel: NSObject {
             }
             
             
-            
-            
             for  item in array {
                 
                 let status = Status(dict: item)
                 let statusViewModel = StatusViewModel(status: status)
                 
                 
-                self.statusViewModel.append(statusViewModel)
+                self.statusViewModelArray.append(statusViewModel)
                 
                 
                 
