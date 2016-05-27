@@ -24,9 +24,8 @@ class StatusCell: UITableViewCell {
         didSet{
             
                         /// ----------original
-            let headIconUrl = NSURL(string: (statusViewModel!.status?.user?.profile_image_url)!)
             
-            statusOriginalView.headIcon.sd_setImageWithURL(headIconUrl)
+            statusOriginalView.headIcon.sd_setImageWithURL(statusViewModel?.headIconUrl())
             statusOriginalView.nameLabel.text=statusViewModel!.status?.user?.name;
             
             statusOriginalView.timelabel.text=statusViewModel!.status?.created_at;

@@ -28,3 +28,11 @@ class StatusViewModel: NSObject {
     
 
 }
+
+
+extension  StatusViewModel{
+    func headIconUrl() ->NSURL {
+        
+        return  NSURL(string: (status?.user?.profile_image_url)!)!
+    }
+}

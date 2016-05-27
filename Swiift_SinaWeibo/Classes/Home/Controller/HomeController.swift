@@ -24,6 +24,8 @@ class HomeController: BaseTableViewController {
         
          setHomeNav();
         
+        tabBarItem.badgeValue="10"
+        
         if UserAccountViewModel.shareUserAccountViewModel.userLogin {
             tableView .registerClass(StatusCell.self, forCellReuseIdentifier: "HomeTableCell")
             
@@ -54,7 +56,8 @@ class HomeController: BaseTableViewController {
      加载网络数据
      */
     @objc   func loadHomeData() {
-            statusListViewModel?.statusViewModelArray.removeAll()
+        
+        statusListViewModel?.statusViewModelArray.removeAll()
         
         statusListViewModel?.loadHomeData({ (isSucess) in
             
@@ -98,7 +101,7 @@ extension HomeController{
         let cell:StatusCell = tableView.dequeueReusableCellWithIdentifier("HomeTableCell", forIndexPath: indexPath)  as! StatusCell
         
         
-        let  statusViewModel = self.statusListViewModel!.statusViewModelArray[indexPath.row]
+        let  statusViewModel = self.statusListViewModel!.statusViewModelArray[indexPath.row] ?? nil
         
         
         cell.statusViewModel=statusViewModel

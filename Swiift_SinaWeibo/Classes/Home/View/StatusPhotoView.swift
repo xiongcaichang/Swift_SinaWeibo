@@ -35,6 +35,8 @@ class StatusPhotoView: UICollectionView,UICollectionViewDelegate,UICollectionVie
         self.delegate=self;
         self.dataSource=self;
         
+        scrollsToTop  =  false
+        
         self.backgroundColor = UIColor.whiteColor()
         
         
