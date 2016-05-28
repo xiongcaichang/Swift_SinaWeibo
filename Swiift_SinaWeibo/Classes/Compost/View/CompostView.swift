@@ -28,17 +28,19 @@ class CompostView: UIView {
     func setUI() {
         addSubview(bgView);
         bgView.frame = UIScreen.mainScreen().bounds
-//        bgView.backgroundColor = UIColor.grayColor()
-        
-        
-        
         
     }
     
     
     
     
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        self.removeFromSuperview()
+    }
     
-    lazy var bgView:UIImageView = UIImageView(image: UIImage.snapShotCurrentWindow())
+    
+    
+    lazy var bgView:UIImageView = UIImageView(image: UIImage.snapShotCurrentWindow().applyLightEffect())
 
 }

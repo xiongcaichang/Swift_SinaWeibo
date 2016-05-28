@@ -19,9 +19,10 @@ let SWITCH_ROOT_VIEWCONTROLLER_NOTIFICATION = "SWITCH_ROOT_VIEWCONTROLLER"
 let userInfoKey = "com.xiongcaichang.weibo.userAccount"
 
 
-let appKey = "4129334439"
-let appSecret = "25596a86a93d73f78d960f2ee278f909"
+let appKey = "3724245543"
+let appSecret = "8647e017487f6593cb798b5fe20e4ef4"
 let redirect_uri = "http://www.xiongcaichang.com"
+
 
 
 let statusCellMargin:CGFloat = 8.0

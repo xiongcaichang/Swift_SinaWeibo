@@ -94,6 +94,9 @@ class CCNetWorkTool: NSObject {
 
 }
 
+
+
+
 extension CCNetWorkTool{
     
     
@@ -166,16 +169,23 @@ extension CCNetWorkTool{
         
         
         
-        
-        
-        func loadHomeData(finishedBlock:(respondObject:AnyObject?,error:NSError?) -> ()) {
+        func loadHomeData(since_id since_id:Int64 = 0,max_id:Int64  = 0,finishedBlock:(respondObject:AnyObject?,error:NSError?) -> ()) {
             
             let token = UserAccountViewModel.shareUserAccountViewModel.userAccount?.access_token
             
             
-            let parmas = [
+            var parmas = [
                 "access_token":token!
             ]
+            
+           
+            if max_id > 0 {
+                //max_id - 1解决数据重复的问题
+                parmas["max_id"] = "\(max_id - 1)"
+            }
+            if since_id > 0 {
+                parmas["since_id"] = "\(since_id)"
+            }
             
             requset(.GET, urlStr: "https://api.weibo.com/2/statuses/home_timeline.json", parameters: parmas) { (respondObject, error) in
                 

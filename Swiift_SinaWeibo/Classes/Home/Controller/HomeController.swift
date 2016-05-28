@@ -14,7 +14,9 @@ class HomeController: BaseTableViewController {
     
     
     
-     let myRefresh = CCRefreshControl()
+    
+    
+    let myRefresh = CCRefreshControl()
     
     lazy var statusListViewModel:StatusListViewModel? =  StatusListViewModel();
     
@@ -29,21 +31,11 @@ class HomeController: BaseTableViewController {
         tabBarItem.badgeValue="10"
         
         if UserAccountViewModel.shareUserAccountViewModel.userLogin {
-            tableView .registerClass(StatusCell.self, forCellReuseIdentifier: "HomeTableCell")
+            
             
 
-            self.tableView.rowHeight = UITableViewAutomaticDimension;
-            self.tableView.estimatedRowHeight = 350;
+            initTableView()
             
-            self.tableView.separatorStyle = .None
-            
-            tableView.addSubview(myRefresh)
-            
-            myRefresh.addTarget(self, action: #selector(HomeController.loadHomeData), forControlEvents: .ValueChanged)
-            
-            
-      
-           
 
         }
         
@@ -51,37 +43,59 @@ class HomeController: BaseTableViewController {
     
     
     
+    func initTableView() {
+        tableView .registerClass(StatusCell.self, forCellReuseIdentifier: "HomeTableCell")
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
+        self.tableView.estimatedRowHeight = 350;
+        
+        self.tableView.separatorStyle = .None
+        
+        tableView.addSubview(myRefresh)
+        
+        tableView.tableFooterView=indicatorView
+        
+        myRefresh.addTarget(self, action: #selector(HomeController.loadHomeData), forControlEvents: .ValueChanged)
+        
+        loadHomeData()
+    }
+    
     
     
     
     /**
      加载网络数据
      */
-    @objc   func loadHomeData() {
+    @objc   func loadHomeData(isAnimating:Bool = false) {
         
-        statusListViewModel?.statusViewModelArray.removeAll()
-        
-        statusListViewModel?.loadHomeData({ (isSucess) in
+    
+        statusListViewModel?.loadHomeData(isPullup: isAnimating, handlerBlock: { (isSucess) in
             
-        
+             self.myRefresh.endRefreshing()
             
             if isSucess {
+                
+                
+                self.indicatorView.stopAnimating()
                 self.tableView.reloadData();
                 
-                self.myRefresh.endRefreshing()
             }else{
                 
                 
                 SVProgressHUD.showErrorWithStatus("错误")
             }
+            
+            
         })
-        
-               
+
     }
+
+
     
-
-
-
+    private lazy var indicatorView: UIActivityIndicatorView = {
+        let v = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        
+        return v
+    }()
     
 
 }
@@ -103,14 +117,17 @@ extension HomeController{
         let cell:StatusCell = tableView.dequeueReusableCellWithIdentifier("HomeTableCell", forIndexPath: indexPath)  as! StatusCell
         
         
-        let  statusViewModel = self.statusListViewModel!.statusViewModelArray[indexPath.row] ?? nil
+        let  statusViewModel = self.statusListViewModel?.statusViewModelArray[indexPath.row] ?? nil
         
         
         cell.statusViewModel=statusViewModel
         
+
         
-        if indexPath.row == (self.statusListViewModel?.statusViewModelArray.count)!-1 {
-            loadHomeData();
+        if indicatorView.isAnimating() == false && indexPath.row == (self.statusListViewModel?.statusViewModelArray.count)!-1 {
+            
+            indicatorView.startAnimating()
+            loadHomeData(indicatorView.isAnimating());
         }
         
         

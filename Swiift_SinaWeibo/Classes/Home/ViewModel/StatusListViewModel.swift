@@ -15,9 +15,29 @@ class StatusListViewModel: NSObject {
     
     
     
-    
-    func loadHomeData(handlerBlock: (isSucess:Bool) -> () ) {
-        CCNetWorkTool.shareTool.loadHomeData { (respondObject, error) in
+
+    func loadHomeData(isPullup isPullup:Bool,handlerBlock: (isSucess:Bool) -> () ) {
+        
+
+        var  max_id:Int64 = 0
+        var since_id:Int64 = 0
+        
+        
+        if isPullup {
+            
+             max_id = statusViewModelArray.last?.status?.id ?? 0
+            
+        }else{
+            
+             since_id = statusViewModelArray.first?.status?.id ?? 0
+        }
+        
+        
+        
+        
+        
+        CCNetWorkTool.shareTool.loadHomeData(since_id:since_id ?? 0, max_id: max_id ?? 0) { (respondObject, error) in
+            
             
             if  error != nil {
                 
@@ -38,28 +58,35 @@ class StatusListViewModel: NSObject {
             
             
             
-            var tempArray = [StatusViewModel]();
+            var tempArray:[StatusViewModel] = [StatusViewModel]();
             
             for  item in array {
                 
                 let status = Status(dict: item)
                 
- 
+                
                 let statusViewModel = StatusViewModel(status: status)
+                
                 tempArray.append(statusViewModel)
                 
-            
+                
             }
             
-            self.statusViewModelArray = self.statusViewModelArray + tempArray;
+            if isPullup {
+                self.statusViewModelArray = self.statusViewModelArray + tempArray;
+                
+            }else{
+                self.statusViewModelArray =  tempArray + self.statusViewModelArray;
+                
+            }
+            
+     
+            handlerBlock(isSucess: true)
             
             
-                handlerBlock(isSucess: true)
 
             
-            
         }
-        
 
 
     }

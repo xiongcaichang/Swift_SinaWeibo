@@ -56,6 +56,7 @@
 		09E2FE211CF936CE009571C9 /* CompostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E2FE201CF936CE009571C9 /* CompostView.swift */; };
 		09E2FE231CF937F3009571C9 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E2FE221CF937F3009571C9 /* UIImage+Extension.swift */; };
 		09E2FE251CF9514F009571C9 /* CCRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E2FE241CF9514F009571C9 /* CCRefreshControl.swift */; };
+		09E2FE291CF9BF90009571C9 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E2FE281CF9BF90009571C9 /* UIImage+ImageEffects.m */; };
 		09F1597D1CEEA12F0042699D /* CCNavgationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F1597C1CEEA12F0042699D /* CCNavgationController.swift */; };
 		09F1597F1CEEA3020042699D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F1597E1CEEA3020042699D /* DetailViewController.swift */; };
 		09F159811CEEA3410042699D /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F159801CEEA3410042699D /* UIBarButtonItem+Extension.swift */; };
@@ -130,6 +131,9 @@
 		09E2FE201CF936CE009571C9 /* CompostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompostView.swift; sourceTree = "<group>"; };
 		09E2FE221CF937F3009571C9 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		09E2FE241CF9514F009571C9 /* CCRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCRefreshControl.swift; sourceTree = "<group>"; };
+		09E2FE271CF9BF90009571C9 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		09E2FE281CF9BF90009571C9 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		09E2FE2D1CF9C02B009571C9 /* ObjectCHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectCHeader.h; sourceTree = "<group>"; };
 		09F1597C1CEEA12F0042699D /* CCNavgationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCNavgationController.swift; sourceTree = "<group>"; };
 		09F1597E1CEEA3020042699D /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		09F159801CEEA3410042699D /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
@@ -225,6 +229,7 @@
 				097046031CED5FEB00F09504 /* AppDelegate.swift */,
 				0970460A1CED5FEB00F09504 /* Assets.xcassets */,
 				0970460F1CED5FEB00F09504 /* Info.plist */,
+				09E2FE2D1CF9C02B009571C9 /* ObjectCHeader.h */,
 			);
 			path = Swiift_SinaWeibo;
 			sourceTree = "<group>";
@@ -608,9 +613,19 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		09E2FE261CF9BF90009571C9 /* UIImageEffects */ = {
+			isa = PBXGroup;
+			children = (
+				09E2FE271CF9BF90009571C9 /* UIImage+ImageEffects.h */,
+				09E2FE281CF9BF90009571C9 /* UIImage+ImageEffects.m */,
+			);
+			path = UIImageEffects;
+			sourceTree = "<group>";
+		};
 		09F159821CEEBDF60042699D /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				09E2FE261CF9BF90009571C9 /* UIImageEffects */,
 				09721A8F1CF4025A00E85753 /* LTMorphingLabel */,
 				09F159831CEEBE0C0042699D /* SnapKit */,
 			);
@@ -839,6 +854,7 @@
 				09D10C261CED761200A2B5E8 /* MessageController.swift in Sources */,
 				09F159941CEEBE0C0042699D /* ConstraintDescription.swift in Sources */,
 				09FAEE101CF5385100D8DB71 /* StatusViewModel.swift in Sources */,
+				09E2FE291CF9BF90009571C9 /* UIImage+ImageEffects.m in Sources */,
 				09721AA41CF4025A00E85753 /* LTCharacterLimbo.swift in Sources */,
 				09721AAC1CF4025A00E85753 /* LTMorphingLabel+Pixelate.swift in Sources */,
 				09721AA81CF4025A00E85753 /* LTMorphingLabel+Anvil.swift in Sources */,
@@ -889,6 +905,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PRODUCT_NAME)/ObjectCHeader.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -928,6 +945,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PRODUCT_NAME)/ObjectCHeader.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
