@@ -76,7 +76,7 @@ extension OAuthViewContoller{
     
     
     func closeSelf()  {
-        
+        SVProgressHUD.dismiss()
         dismissViewControllerAnimated(true, completion: nil);
     }
     

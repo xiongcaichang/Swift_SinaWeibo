@@ -37,18 +37,21 @@ class StatusListViewModel: NSObject {
             }
             
             
+            
+            var tempArray = [StatusViewModel]();
+            
             for  item in array {
                 
                 let status = Status(dict: item)
+                
+ 
                 let statusViewModel = StatusViewModel(status: status)
+                tempArray.append(statusViewModel)
                 
-                
-                self.statusViewModelArray.append(statusViewModel)
-                
-                
-                
-                
+            
             }
+            
+            self.statusViewModelArray = self.statusViewModelArray + tempArray;
             
             
                 handlerBlock(isSucess: true)

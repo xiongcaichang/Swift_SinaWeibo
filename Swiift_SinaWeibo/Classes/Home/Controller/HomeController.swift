@@ -14,9 +14,11 @@ class HomeController: BaseTableViewController {
     
     
     
+     let myRefresh = CCRefreshControl()
+    
     lazy var statusListViewModel:StatusListViewModel? =  StatusListViewModel();
     
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,12 +37,12 @@ class HomeController: BaseTableViewController {
             
             self.tableView.separatorStyle = .None
             
+            tableView.addSubview(myRefresh)
             
-            loadHomeData()
+            myRefresh.addTarget(self, action: #selector(HomeController.loadHomeData), forControlEvents: .ValueChanged)
             
-            refreshControl = UIRefreshControl();
             
-            refreshControl!.addTarget(self, action: #selector(loadHomeData), forControlEvents: .ValueChanged)
+      
            
 
         }
@@ -66,7 +68,7 @@ class HomeController: BaseTableViewController {
             if isSucess {
                 self.tableView.reloadData();
                 
-                self.refreshControl?.endRefreshing()
+                self.myRefresh.endRefreshing()
             }else{
                 
                 
@@ -105,6 +107,11 @@ extension HomeController{
         
         
         cell.statusViewModel=statusViewModel
+        
+        
+        if indexPath.row == (self.statusListViewModel?.statusViewModelArray.count)!-1 {
+            loadHomeData();
+        }
         
         
         return cell;

@@ -157,9 +157,7 @@ class WelcomeController: UIViewController {
         
         animation.duration=3
         
-        
-        
-    
+
         
         iconView.layer.addAnimation(animation, forKey: nil)
         
@@ -175,13 +173,7 @@ class WelcomeController: UIViewController {
             
         }
         
- 
-    
-        
-        
-        
-        
-        
+     
         
     }
     
