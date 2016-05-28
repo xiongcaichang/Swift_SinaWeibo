@@ -44,10 +44,10 @@ class CCNetWorkTool: NSObject {
     
     func requset(method:HttpMethod,urlStr:String,parameters:[String:AnyObject]?,finishedBlock:(respondObject:AnyObject?,error:NSError?) -> ()) {
         
-    
+        
         let manager = AFHTTPSessionManager();
         manager.responseSerializer.acceptableContentTypes?.insert("text/plain")
-  
+        
         
         if method == .POST {
             manager.POST(urlStr, parameters: parameters, progress: nil, success: { (task, respondObject) in
@@ -86,12 +86,12 @@ class CCNetWorkTool: NSObject {
         
     }
     
-     init(baseURL:String?) {
+    init(baseURL:String?) {
         
         baseUrl=baseURL;
         super.init();
     }
-
+    
 }
 
 
@@ -103,33 +103,33 @@ extension CCNetWorkTool{
     
     func loadAccessToken(code:String,finishedBlock:(respondObject:AnyObject?,error:NSError?) -> ()) {
         
+        
+        let urlString = "https://api.weibo.com/oauth2/access_token"
+        
+        let parmas = [
+            "client_id":appKey,
+            "client_secret":appSecret,
+            "grant_type":"authorization_code",
+            "code":code,
+            "redirect_uri":redirect_uri
+        ]
+        
+        
+        CCNetWorkTool.shareTool.requset(.POST, urlStr: urlString, parameters: parmas) { (respondObject, error) in
             
-            let urlString = "https://api.weibo.com/oauth2/access_token"
             
-            let parmas = [
-                "client_id":appKey,
-                "client_secret":appSecret,
-                "grant_type":"authorization_code",
-                "code":code,
-                "redirect_uri":redirect_uri
-            ]
+            finishedBlock(respondObject: respondObject, error: error)
             
             
-            CCNetWorkTool.shareTool.requset(.POST, urlStr: urlString, parameters: parmas) { (respondObject, error) in
-                
-                
-                finishedBlock(respondObject: respondObject, error: error)
-                
-                
-                
+            
             
         }
         
         
-    
-    
-    
-    
+        
+        
+        
+        
     }
     
     
@@ -166,36 +166,36 @@ extension CCNetWorkTool{
 
 
 extension CCNetWorkTool{
+    
+    
+    
+    func loadHomeData(since_id since_id:Int64 = 0,max_id:Int64  = 0,finishedBlock:(respondObject:AnyObject?,error:NSError?) -> ()) {
+        
+        let token = UserAccountViewModel.shareUserAccountViewModel.userAccount?.access_token
         
         
+        var parmas = [
+            "access_token":token!
+        ]
         
-        func loadHomeData(since_id since_id:Int64 = 0,max_id:Int64  = 0,finishedBlock:(respondObject:AnyObject?,error:NSError?) -> ()) {
-            
-            let token = UserAccountViewModel.shareUserAccountViewModel.userAccount?.access_token
-            
-            
-            var parmas = [
-                "access_token":token!
-            ]
-            
-           
-            if max_id > 0 {
-                //max_id - 1解决数据重复的问题
-                parmas["max_id"] = "\(max_id - 1)"
-            }
-            if since_id > 0 {
-                parmas["since_id"] = "\(since_id)"
-            }
-            
-            requset(.GET, urlStr: "https://api.weibo.com/2/statuses/home_timeline.json", parameters: parmas) { (respondObject, error) in
-                
-                print(error?.localizedDescription)
-                finishedBlock(respondObject: respondObject, error: error)
-            }
+        
+        if max_id > 0 {
+            //max_id - 1解决数据重复的问题
+            parmas["max_id"] = "\(max_id - 1)"
         }
+        if since_id > 0 {
+            parmas["since_id"] = "\(since_id)"
+        }
+        
+        requset(.GET, urlStr: "https://api.weibo.com/2/statuses/home_timeline.json", parameters: parmas) { (respondObject, error) in
+            
+            print(error?.localizedDescription)
+            finishedBlock(respondObject: respondObject, error: error)
+        }
+    }
     
     
-
-        
-        
+    
+    
+    
 }

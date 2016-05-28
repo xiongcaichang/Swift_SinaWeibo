@@ -9,7 +9,7 @@
 import UIKit
 
 class CompostView: UIView {
-
+    
     override init(frame: CGRect) {
         
         let rect = UIScreen.mainScreen().bounds
@@ -42,5 +42,5 @@ class CompostView: UIView {
     
     
     lazy var bgView:UIImageView = UIImageView(image: UIImage.snapShotCurrentWindow().applyLightEffect())
-
+    
 }
