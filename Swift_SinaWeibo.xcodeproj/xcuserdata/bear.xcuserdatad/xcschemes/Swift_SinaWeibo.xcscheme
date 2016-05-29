@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "097045FF1CED5FEB00F09504"
-               BuildableName = "Swiift_SinaWeibo.app"
-               BlueprintName = "Swiift_SinaWeibo"
-               ReferencedContainer = "container:Swiift_SinaWeibo.xcodeproj">
+               BlueprintIdentifier = "099904DF1CFAE18800865FFB"
+               BuildableName = "Swift_SinaWeibo.app"
+               BlueprintName = "Swift_SinaWeibo"
+               ReferencedContainer = "container:Swift_SinaWeibo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "097045FF1CED5FEB00F09504"
-            BuildableName = "Swiift_SinaWeibo.app"
-            BlueprintName = "Swiift_SinaWeibo"
-            ReferencedContainer = "container:Swiift_SinaWeibo.xcodeproj">
+            BlueprintIdentifier = "099904DF1CFAE18800865FFB"
+            BuildableName = "Swift_SinaWeibo.app"
+            BlueprintName = "Swift_SinaWeibo"
+            ReferencedContainer = "container:Swift_SinaWeibo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "097045FF1CED5FEB00F09504"
-            BuildableName = "Swiift_SinaWeibo.app"
-            BlueprintName = "Swiift_SinaWeibo"
-            ReferencedContainer = "container:Swiift_SinaWeibo.xcodeproj">
+            BlueprintIdentifier = "099904DF1CFAE18800865FFB"
+            BuildableName = "Swift_SinaWeibo.app"
+            BlueprintName = "Swift_SinaWeibo"
+            ReferencedContainer = "container:Swift_SinaWeibo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "097045FF1CED5FEB00F09504"
-            BuildableName = "Swiift_SinaWeibo.app"
-            BlueprintName = "Swiift_SinaWeibo"
-            ReferencedContainer = "container:Swiift_SinaWeibo.xcodeproj">
+            BlueprintIdentifier = "099904DF1CFAE18800865FFB"
+            BuildableName = "Swift_SinaWeibo.app"
+            BlueprintName = "Swift_SinaWeibo"
+            ReferencedContainer = "container:Swift_SinaWeibo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

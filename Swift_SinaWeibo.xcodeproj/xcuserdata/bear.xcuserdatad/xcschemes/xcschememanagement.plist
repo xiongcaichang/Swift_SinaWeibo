@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Swiift_SinaWeibo.xcscheme</key>
+		<key>Swift_SinaWeibo.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>097045FF1CED5FEB00F09504</key>
+		<key>099904DF1CFAE18800865FFB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

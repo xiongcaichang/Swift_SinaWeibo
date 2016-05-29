@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0730"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "95C43EA32CDE406806C244A583C8B0AE"
-               BuildableName = "Pods_Swiift_SinaWeibo.framework"
-               BlueprintName = "Pods-Swiift_SinaWeibo"
+               BlueprintIdentifier = "998C02276F521E3E639646EC810A7AE7"
+               BuildableName = "Pods_Swift_SinaWeibo.framework"
+               BlueprintName = "Pods-Swift_SinaWeibo"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "95C43EA32CDE406806C244A583C8B0AE"
-            BuildableName = "Pods_Swiift_SinaWeibo.framework"
-            BlueprintName = "Pods-Swiift_SinaWeibo"
+            BlueprintIdentifier = "998C02276F521E3E639646EC810A7AE7"
+            BuildableName = "Pods_Swift_SinaWeibo.framework"
+            BlueprintName = "Pods-Swift_SinaWeibo"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

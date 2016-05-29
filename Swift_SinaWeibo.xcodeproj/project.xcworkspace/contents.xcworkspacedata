@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Swiift_SinaWeibo.xcodeproj">
+      location = "self:Swift_SinaWeibo.xcodeproj">
    </FileRef>
 </Workspace>
