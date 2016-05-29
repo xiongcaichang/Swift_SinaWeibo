@@ -13,7 +13,7 @@ extension UIBarButtonItem{
     
     
     
-    class   func createBarButtonItem(iconName:String,title:String? = nil, target: AnyObject?, action: Selector) -> UIBarButtonItem {
+    class   func createBarButtonItem(iconName:String = "",title:String? = nil, target: AnyObject?, action: Selector) -> UIBarButtonItem {
         
         
         let button = UIButton(type: .Custom)

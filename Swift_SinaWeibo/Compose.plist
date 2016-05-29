@@ -3,6 +3,8 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>target</key>
+		<string>Swift_SinaWeibo.CompostController</string>
 		<key>title</key>
 		<string>文字</string>
 		<key>icon</key>

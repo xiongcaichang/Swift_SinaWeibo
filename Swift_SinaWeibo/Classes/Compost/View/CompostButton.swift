@@ -1,5 +1,5 @@
 //
-//  CompostButton.swift
+//  ComposeButton.swift
 //  Swiift_SinaWeibo
 //
 //  Created by bear on 16/5/28.
@@ -8,10 +8,20 @@
 
 import UIKit
 
-class CompostButton: UIButton {
+class ComposeButton: UIButton {
     private let imageW: CGFloat = 80
     
-
+    var composeItem:ComposeInfo?{
+        
+        didSet{
+            
+            
+            setTitle(composeItem?.title ?? "aaa", forState: .Normal)
+            
+            setImage(UIImage(named:(composeItem?.icon) ?? ""), forState: .Normal)
+        }
+    }
+    
     
     
     override func imageRectForContentRect(contentRect: CGRect) -> CGRect {

@@ -22,12 +22,6 @@ class WelcomeController: UIViewController {
         
         view.backgroundColor=UIColor.whiteColor()
         
-
-        
-        
-        
-        
-        
     }
     
     
@@ -37,7 +31,7 @@ class WelcomeController: UIViewController {
         iconView.layer.cornerRadius=45;
         iconView.clipsToBounds=true
     
-                view.addSubview(imgBg)
+        view.addSubview(imgBg)
         self.view.addSubview(iconView)
         self.view.addSubview(nameLabel)
         
@@ -69,26 +63,7 @@ class WelcomeController: UIViewController {
             
         }
         
-        nameLabel.snp_makeConstraints { (make) in
-//            
-//            make.centerX.equalTo(iconView.snp_centerX)
-//            
-//            make.centerY.equalTo(iconView.snp_centerY).offset(70);
-        }
-        
-        
-        
-        UIView.animateWithDuration(0.5) { 
-            
-            self.iconView.snp_makeConstraints(closure: { (make) in
-                
-               
-                
-                
-                
-            })
-            
-        }
+
         
         
         

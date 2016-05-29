@@ -63,7 +63,10 @@ class MainController: UITabBarController {
     //但是加了private  按钮不具备派发特性      为了系统可调用派发  则告诉系统使用objc实现的   @objc
     @objc  private func plusBtnClick()  {
         
-        view.addSubview(CompostView());
+        view.addSubview(ComposeView(frame: CGRectZero, composeButtonClickHandler: { (targeVC) in
+            
+           self.presentViewController(targeVC, animated:false, completion: nil)
+        }))
         
         
         

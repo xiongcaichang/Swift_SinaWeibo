@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		090164FA1CFB005700B8D5C4 /* ComposeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090164F91CFB005700B8D5C4 /* ComposeInfo.swift */; };
 		096AC2741CFAE41A00026345 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 096AC2731CFAE41A00026345 /* Assets.xcassets */; };
 		099905721CFAE1FA00865FFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099904F61CFAE1FA00865FFB /* AppDelegate.swift */; };
 		099905741CFAE1FA00865FFB /* CompostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099904FC1CFAE1FA00865FFB /* CompostController.swift */; };
-		099905751CFAE1FA00865FFB /* CompostInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099904FD1CFAE1FA00865FFB /* CompostInfo.swift */; };
 		099905761CFAE1FA00865FFB /* CompostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099905001CFAE1FA00865FFB /* CompostButton.swift */; };
-		099905771CFAE1FA00865FFB /* CompostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099905011CFAE1FA00865FFB /* CompostView.swift */; };
+		099905771CFAE1FA00865FFB /* ComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099905011CFAE1FA00865FFB /* ComposeView.swift */; };
 		099905781CFAE1FA00865FFB /* DiscoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099905041CFAE1FA00865FFB /* DiscoverController.swift */; };
 		099905791CFAE1FA00865FFB /* CCSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099905071CFAE1FA00865FFB /* CCSearchBar.swift */; };
 		0999057A1CFAE1FA00865FFB /* CCSearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 099905081CFAE1FA00865FFB /* CCSearchBar.xib */; };
@@ -83,15 +83,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		090164F91CFB005700B8D5C4 /* ComposeInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeInfo.swift; sourceTree = "<group>"; };
 		096AC2731CFAE41A00026345 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		099904E01CFAE18800865FFB /* Swift_SinaWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swift_SinaWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		099904EF1CFAE18900865FFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		099904F51CFAE1F900865FFB /* Swift_SinaWeibo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Swift_SinaWeibo-Bridging-Header.h"; sourceTree = "<group>"; };
 		099904F61CFAE1FA00865FFB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		099904FC1CFAE1FA00865FFB /* CompostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompostController.swift; sourceTree = "<group>"; };
-		099904FD1CFAE1FA00865FFB /* CompostInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompostInfo.swift; sourceTree = "<group>"; };
 		099905001CFAE1FA00865FFB /* CompostButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompostButton.swift; sourceTree = "<group>"; };
-		099905011CFAE1FA00865FFB /* CompostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompostView.swift; sourceTree = "<group>"; };
+		099905011CFAE1FA00865FFB /* ComposeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeView.swift; sourceTree = "<group>"; };
 		099905041CFAE1FA00865FFB /* DiscoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverController.swift; sourceTree = "<group>"; };
 		099905071CFAE1FA00865FFB /* CCSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCSearchBar.swift; sourceTree = "<group>"; };
 		099905081CFAE1FA00865FFB /* CCSearchBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCSearchBar.xib; sourceTree = "<group>"; };
@@ -212,16 +212,16 @@
 		099904F91CFAE1FA00865FFB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0999056A1CFAE1FA00865FFB /* Welcome */,
 				099904FA1CFAE1FA00865FFB /* Compost */,
 				099905021CFAE1FA00865FFB /* Discover */,
 				0999050A1CFAE1FA00865FFB /* Home */,
-				0999051C1CFAE1FA00865FFB /* Lib */,
 				099905431CFAE1FA00865FFB /* Main */,
 				0999054D1CFAE1FA00865FFB /* Message */,
 				099905531CFAE1FA00865FFB /* OAuth */,
 				0999055B1CFAE1FA00865FFB /* Profile */,
 				099905621CFAE1FA00865FFB /* Tool */,
-				0999056A1CFAE1FA00865FFB /* Welcome */,
+				0999051C1CFAE1FA00865FFB /* Lib */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -240,7 +240,6 @@
 			isa = PBXGroup;
 			children = (
 				099904FC1CFAE1FA00865FFB /* CompostController.swift */,
-				099904FD1CFAE1FA00865FFB /* CompostInfo.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -248,6 +247,7 @@
 		099904FE1CFAE1FA00865FFB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				090164F91CFB005700B8D5C4 /* ComposeInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -256,7 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				099905001CFAE1FA00865FFB /* CompostButton.swift */,
-				099905011CFAE1FA00865FFB /* CompostView.swift */,
+				099905011CFAE1FA00865FFB /* ComposeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -830,12 +830,13 @@
 				099905AE1CFAE1FA00865FFB /* UserAccount.swift in Sources */,
 				099905791CFAE1FA00865FFB /* CCSearchBar.swift in Sources */,
 				099905B71CFAE1FA00865FFB /* UIView+Inspectable.swift in Sources */,
+				090164FA1CFB005700B8D5C4 /* ComposeInfo.swift in Sources */,
 				0999058E1CFAE1FA00865FFB /* LTMorphingLabel+Burn.swift in Sources */,
 				099905B51CFAE1FA00865FFB /* UIImage+Extension.swift in Sources */,
 				099905A21CFAE1FA00865FFB /* LayoutConstraint.swift in Sources */,
 				099905821CFAE1FA00865FFB /* StatusCell.swift in Sources */,
 				0999058F1CFAE1FA00865FFB /* LTMorphingLabel+Evaporate.swift in Sources */,
-				099905771CFAE1FA00865FFB /* CompostView.swift in Sources */,
+				099905771CFAE1FA00865FFB /* ComposeView.swift in Sources */,
 				099905A01CFAE1FA00865FFB /* EdgeInsets.swift in Sources */,
 				0999059B1CFAE1FA00865FFB /* ConstraintDescription.swift in Sources */,
 				099905991CFAE1FA00865FFB /* Constraint.swift in Sources */,
@@ -848,7 +849,6 @@
 				099905801CFAE1FA00865FFB /* RepostContentView.swift in Sources */,
 				099905B01CFAE1FA00865FFB /* ProfileController.swift in Sources */,
 				099905A71CFAE1FA00865FFB /* BaseTableViewController.swift in Sources */,
-				099905751CFAE1FA00865FFB /* CompostInfo.swift in Sources */,
 				099905A31CFAE1FA00865FFB /* SnapKit.swift in Sources */,
 				099905841CFAE1FA00865FFB /* StatusPhotoCell.swift in Sources */,
 				099905901CFAE1FA00865FFB /* LTMorphingLabel+Fall.swift in Sources */,
