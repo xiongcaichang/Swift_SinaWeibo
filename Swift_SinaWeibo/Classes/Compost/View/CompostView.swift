@@ -29,8 +29,17 @@ class CompostView: UIView {
         addSubview(bgView);
         bgView.frame = UIScreen.mainScreen().bounds
         
+        
+        
+        
+        
+        
     }
     
+    
+    
+    
+
     
     
     
@@ -38,7 +47,6 @@ class CompostView: UIView {
         
         self.removeFromSuperview()
     }
-    
     
     
     lazy var bgView:UIImageView = UIImageView(image: UIImage.snapShotCurrentWindow().applyLightEffect())

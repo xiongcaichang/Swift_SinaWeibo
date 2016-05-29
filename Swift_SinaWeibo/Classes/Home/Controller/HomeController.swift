@@ -43,6 +43,12 @@ class HomeController: BaseTableViewController {
     
     
     
+    /**
+     初始化  tableView
+     
+     - returns: void
+     
+     */
     func initTableView() {
         tableView .registerClass(StatusCell.self, forCellReuseIdentifier: "HomeTableCell")
         self.tableView.rowHeight = UITableViewAutomaticDimension;

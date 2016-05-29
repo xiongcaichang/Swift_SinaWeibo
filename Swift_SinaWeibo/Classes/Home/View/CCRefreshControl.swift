@@ -145,7 +145,7 @@ class CCRefreshControl: UIControl {
     
     //MARK: 设置UI界面
     private func setupUI() {
-//        backgroundColor = UIColor.yellowColor()
+        backgroundColor = UIColor.lightGrayColor()
         
         addSubview(arrowicon)
         addSubview(tipLabel)
