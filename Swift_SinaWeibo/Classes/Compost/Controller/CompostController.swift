@@ -14,15 +14,17 @@ class CompostController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        view.backgroundColor=UIColor.whiteColor();
         view.backgroundColor = UIColor.whiteColor()
+        
+        
+        
 
         
+        
     }
-    
-    
-    
-    
-    
 
 
 }
