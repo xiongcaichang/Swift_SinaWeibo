@@ -46,6 +46,10 @@ class CompostController: UIViewController {
 
 }
 
+
+
+
+
 extension CompostController{
     
     
@@ -126,11 +130,5 @@ extension CompostController{
 
     
 
-    
-}
-
-
-
-extension ComposeInfo{
     
 }
